@@ -16,11 +16,15 @@ class HomePageTest(TestCase):
 
     def test_home_page_returns_correct_html(self):
         request = HttpRequest()
+        request.method = 'POST'
+        request.POST['item_text'] = 'A new list item'
         response = home_page(request)
-        expected_html = render_to_string('home.html')
+
+        expected_html = render_to_string('home.html', {'new_item_text': 'A new list item'})
+        #self.assertIn('A new list item', response.content.decode())
         self.assertEqual(response.content.decode(), expected_html)
 
-        #no testing constant anymore
+        ### no testing constant anymore ###
         #self.assertTrue(response.content.startswith(b'<html>'))
         #self.assertIn(b'<title>To-Do lists</title>', response.content)
         #self.assertIn(b'Ardian ', response.content)
