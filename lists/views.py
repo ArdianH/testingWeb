@@ -6,10 +6,20 @@ from lists.models import Item
 def home_page(request):
     if request.method == 'POST':
         Item.objects.create(text=request.POST['item_text'])
+        #Item.objects.create(counter=request.POST['item_counter'])
         return redirect('/')
 
+    
     items = Item.objects.all()
-    return render(request, 'home.html', {'items':items})
+    counter = Item.objects.count()
+    if counter == 0:
+        comment = "yey, waktunya berlibur"
+    elif counter < 5:
+        comment = "sibuk tapi santai"
+    else:
+        comment = "oh tidak"
+
+    return render(request, 'home.html', {'items':items, 'comment':comment})
 
 
     #if request.method == 'POST':
