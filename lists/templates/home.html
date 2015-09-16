@@ -15,5 +15,7 @@
                 <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
             {% endfor %}
         </table>
+
+        {% if comment %} <h2>Comment: {{comment}}</h2> {% endif %}
     </body>
 </html>
