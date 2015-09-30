@@ -6,28 +6,46 @@ from lists.models import Item, List
 def home_page(request):
     #if request.method == 'POST':
     #    Item.objects.create(text=request.POST['item_text'])
-        #Item.objects.create(counter=request.POST['item_counter'])
+    #    Item.objects.create(counter=request.POST['item_counter'])
     #    return redirect('/lists/the-only-list-in-the-world/')
-
     return render(request, 'home.html')
 
     
-#    items = Item.objects.all()
-#    counter = Item.objects.count()
-#    if counter == 0:
-#        comment = "yey, waktunya berlibur"
-#    elif counter < 5:
-#        comment = "sibuk tapi santai"
-#    else:
-#        comment = "oh tidak"
+    #items = Item.objects.all()
+    #counter = Item.objects.count()
+    #if counter == 0:
+    #    comment = "yey, waktunya berlibur"
+    #elif counter < 5:
+    #    comment = "sibuk tapi santai"
+    #else:
+    #    comment = "oh tidak"
 
-#    return render(request, 'home.html', {'items':items, 'comment':comment})
+    #return render(request, 'list.html', {'items':items, 'comment':comment})
 
 
 
 def view_list(request, list_id):
     list_ = List.objects.get(id=list_id)
-    return render(request, 'list.html', {'list': list_})
+    #items = Item.objects.all()
+    #items = Item.objects.filter(id=list_id)
+    #counter = List.objects.filter(id=list_id).count()
+    #counter = Item.objects.count
+    counter = list_.item_set.count()
+    #counter = 0
+    #for item in list_.item_set.all():
+    #    counter += 1
+    #endfor
+
+    if counter == 0:
+        comment = "yey, waktunya berlibur"
+    elif counter < 5:
+        comment = "sibuk tapi santai"
+    else:
+        comment = "oh tidak"
+
+    return render(request, 'list.html', {'list':list_, 'comment':comment})
+
+    #return render(request, 'list.html', {'list': list_})
 
 
 def new_list(request):
