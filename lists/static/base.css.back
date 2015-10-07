@@ -1,6 +1,6 @@
 #id_new_item {
     margin-top: 2px;
     color: blue;
-    position: relative;   
-    left: -5px
+    position: relative;
+    left: -6px;
 }

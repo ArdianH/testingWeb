@@ -116,3 +116,4 @@ class NewVisitorTest(StaticLiveServerTestCase):
             inputbox.location['x'] + inputbox.size['width'] / 2, 512, delta=5
         )
 
+        #self.assertEqual(inputbox.value_of_css_property('color'), 'rgba(0, 0, 255, 1)')
