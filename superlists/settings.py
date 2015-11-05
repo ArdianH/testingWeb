@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -23,9 +23,10 @@ BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 SECRET_KEY = '8&h)fjgoii!cx^o(+04lqxm8a1#qz8#+(a3a8-0u(dq5#ka2zt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pmpl7ardian.cloudapp.net']
 
 
 # Application definition
@@ -102,5 +103,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '../static')
-#STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
+#STATIC_ROOT = os.path.join(BASE_DIR, '../static')
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
