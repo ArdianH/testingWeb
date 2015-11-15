@@ -26,7 +26,7 @@ SECRET_KEY = '8&h)fjgoii!cx^o(+04lqxm8a1#qz8#+(a3a8-0u(dq5#ka2zt'
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['pmpl7ardian.cloudapp.net']
+ALLOWED_HOSTS = ["pmpl7ardian-dev.cloudapp.net"]
 
 
 # Application definition
@@ -105,3 +105,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
+
+from .secret_key import SECRET_KEY
