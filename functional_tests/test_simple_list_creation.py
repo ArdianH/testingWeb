@@ -10,6 +10,7 @@ class NewVisitorTest(FunctionalTest):
         # to check out its homepage
         #self.browser.get('http://localhost:8031')
         self.browser.get(self.server_url)
+
         # She notices the page title and header mention to-do lists
         self.assertIn('To-Do', self.browser.title) #
         header_text = self.browser.find_element_by_tag_name('h1').text
@@ -18,9 +19,11 @@ class NewVisitorTest(FunctionalTest):
         # She is invited to enter a to-do item straight away
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(inputbox.get_attribute('placeholder'), 'Enter a to-do item')
+
         # She types "Buy peacock feathers" into a text box (Edith's hobby
         # is tying fly-fishing lures)
         inputbox.send_keys('Buy peacock feathers')
+
         # When she hits enter, she is taken to a new URL, and now the page lists
         # "1: Buy peacock feathers" as an item in a to-do list table
         inputbox.send_keys(Keys.ENTER)
@@ -30,9 +33,9 @@ class NewVisitorTest(FunctionalTest):
         
         #import time
         #time.sleep(10)
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
+        ##table = self.browser.find_element_by_id('id_list_table')
+        ##rows = table.find_elements_by_tag_name('tr')
+        ##self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
         # There is still a text box inviting her to add another item. She
         # enters "Use peacock feathers to make a fly" (Edith is very
         # methodical)
@@ -41,10 +44,10 @@ class NewVisitorTest(FunctionalTest):
         inputbox.send_keys(Keys.ENTER)
 
         # The page updates again, and now shows both items on her list
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.check_for_row_in_list_table('1: Buy peacock feathers')
-        self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
+        ##table = self.browser.find_element_by_id('id_list_table')
+        ##rows = table.find_elements_by_tag_name('tr')
+        ##self.check_for_row_in_list_table('1: Buy peacock feathers')
+        ##self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
         
         # The page updates again, and now shows both items on her list
         self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')

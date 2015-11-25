@@ -23,8 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8&h)fjgoii!cx^o(+04lqxm8a1#qz8#+(a3a8-0u(dq5#ka2zt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-TEMPLATE_DEBUG = DEBUG
+#DEBUG = False
+#TEMPLATE_DEBUG = DEBUG
+DEBUG = True
 
 ALLOWED_HOSTS = ["pmpl7ardian-dev.cloudapp.net"]
 
@@ -105,5 +106,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
-
-from .secret_key import SECRET_KEY
